@@ -1,0 +1,38 @@
+Basic Heater Control System Design
+
+
+
+To implement a basic heater control system, the following sensors and components are required:
+
+Temperature Sensor: To monitor ambient or object temperature. Examples:
+
+  DHT11/DHT22 (Digital)
+  LM35/NTC Thermistor (Analog)
+  DS18B20 (Digital, OneWire)
+
+Heater (Simulated via digital output): An LED  for testing purposes.
+
+Recommended Communication Protocol
+
+UART (Serial Communication) is recommended for initial prototyping and debugging:
+
+Justification:
+
+ Simple and well-supported on Arduino and ESP platforms.
+ Requires minimal setup.
+ Ideal for logging temperature and heater status to a serial monitor.
+
+Optional for Bonus Features:
+
+BLE (Bluetooth Low Energy) for wireless state broadcasting.
+
+
+ State Machine
+
+The system uses a temperature-based state machine with the following states:
+
+Idle: System initialized, waiting for temperature change.
+Heating: Heater is ON, raising temperature.
+Stabilizing: Heater toggled to maintain target.
+Target Reached: Desired temperature maintained.
+Overheat: Temperature exceeded safe limit.
